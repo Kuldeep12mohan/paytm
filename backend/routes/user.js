@@ -90,9 +90,9 @@ router.post("/signin", async (req, res) => {
   });
 });
 const updateBody = zod.object({
-  password: zod.string(),
-  firstName: zod.string(),
-  lastName: zod.string(),
+  password: zod.string().optional(),
+  firstName: zod.string().optional(),
+  lastName: zod.string().optional(),
 });
 router.put("/", authMiddleware, async (req, res) => {
   const { success } = updateBody.safeParse(req.body);
